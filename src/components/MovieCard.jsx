@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api';
 
-const MovieCard = ({ movie, verDetalles }) => {
+const MovieCard = ({ movie, onSelect }) => {
   return (
     <>
       <div className="card">
-        <p>img pero nose como mandarla xd</p>
-        <p>Titulo: {movie.titulo}</p>
-        <p>Año: {movie.anio}</p>
-        <p>Tipo: {movie.tipo}</p>
-        <button onClick={() => verDetalles(movie.id)}> ver detalles</button>
+        <img src={movie.Poster} alt={movie.Title} />
+        <p>Titulo: {movie.Title}</p>
+        <p>Año: {movie.Year}</p>
+        <p>Tipo: {movie.Type}</p>
+        <button onClick={() => onSelect(movie)}>
+          Ver detalle
+        </button>
       </div>
     </>
   )

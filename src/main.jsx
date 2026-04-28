@@ -1,11 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import SearchBar from './components/SearchBar.jsx'
-import Loader from './components/Loader.jsx'
+import App from './components/App'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SearchBar />
-    <Loader />
+    <App />
   </StrictMode>,
 )

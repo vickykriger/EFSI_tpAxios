@@ -1,18 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import api from '../api';
+import ErrorMessage from './ErrorMessage';
 
-function SearchBar() {
-    const [count, setCount] = useState(0)
+function SearchBar({ setResults }) {
+  const [query, setQuery] = useState("");
+  const [error, setError] = useState(false);
 
-    return (
-        <>
-            <div className="buscador">
-                <h1>Ingrese el título de lo que quieres buscar</h1>
-                <input type="text" id="searchInput" placeholder="Buscar..."/>
-                <button>Buscar</button>
-            </div>
-        </>
-    )
+  const buscar = async () => {
+    try {
+      setError(false);
+      const response = await api.get("/", {
+        params: {
+          apikey: "8fb39e07",
+          s: query
+        }
+      });
+
+      if (response.data.Response === "False") {
+        setError(true);
+        setResults([]);
+      } else {
+        setResults(response.data.Search);
+      }
+
+    } catch (err) {
+      setError(true);
+    }
+  };
+
+  return (
+    <div className="buscador">
+      <h1>Ingrese el título de lo que quieres buscar</h1>
+
+      <input
+        type="text"
+        placeholder="Buscar..."
+        onChange={(e) => setQuery(e.target.value)}
+      />
+
+      <button onClick={buscar}>Buscar</button>
+
+      {error && <ErrorMessage />}
+    </div>
+  );
 }
 
-export default SearchBar
+export default SearchBar;
