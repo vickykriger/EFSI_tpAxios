@@ -10,7 +10,6 @@ function App() {
     return (
         <div className="container">
             <SearchBar setResults={setResults} />
-
             {selectedMovie ? (
                 <>
                     <button onClick={() => setSelectedMovie(null)}>
