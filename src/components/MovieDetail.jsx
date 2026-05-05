@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api';
 
-const MovieDetail = ({ movie }) => {
+const MovieDetail = ({ movie, agregarAFavs }) => {
   const [errore, setErrore] = useState(false);
   const [resultados, setResultados] = useState(null);
   useEffect(() => {
@@ -36,6 +36,7 @@ const MovieDetail = ({ movie }) => {
   if (!resultados && !errore) return <p>Cargando...</p>;
   if (errore) return <p>Error al cargar datos</p>;
 
+
   return (
     <>
       <div className="card-detalles">
@@ -57,6 +58,9 @@ const MovieDetail = ({ movie }) => {
           <p>Idioma: {resultados?.Language}</p>
           <p>País: {resultados?.Country}</p>
           <p>Puntaje IMDb: {resultados?.imdbRating}</p>
+          <button onClick={() => agregarAFavs(movie)}>
+            Agregar a favoritos
+          </button>
         </div>
 
       </div>
