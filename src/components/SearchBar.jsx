@@ -32,13 +32,19 @@ function SearchBar({ setResults }) {
     <div className="buscador">
       <h1>Ingrese el título de lo que quieres buscar</h1>
 
-      <input
-        type="text"
-        placeholder="Buscar..."
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        buscar();
+      }}>
+        <input
+          type="text"
+          placeholder="Buscar..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
 
-      <button onClick={buscar}>Buscar</button>
+        <button type="submit">Buscar</button>
+      </form>
 
       {error && <ErrorMessage />}
     </div>

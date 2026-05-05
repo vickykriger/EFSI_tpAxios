@@ -11,6 +11,52 @@ body {
   margin: 0 auto;
   padding: 5%;
 }
+.container.dark {
+  background-color: #1e2a38; /* azul oscuro suave */
+  color: #e6eef7;
+}
+
+/* cards */
+.container.dark .card {
+  background: #2c3e50; /* azul grisáceo */
+  color: #e6eef7;
+}
+
+/* detalle */
+.container.dark .card-detalles {
+  background: #2c3e50;
+  color: #e6eef7;
+}
+
+/* input */
+.container.dark .buscador input {
+  background-color: #34495e;
+  color: white;
+  border: 1px solid #5d6d7e;
+}
+
+/* botones */
+.container.dark button {
+  background-color: #3b5998; /* azul tipo botón */
+}
+
+.container.dark button:hover {
+  background-color: #2e4a80;
+}
+
+/* buscador botón */
+.container.dark .buscador button {
+  background-color: #3b5998;
+}
+
+.container.dark .buscador button:hover {
+  background-color: #2e4a80;
+}
+
+/* error */
+.container.dark .error {
+  color: #ff8a80;
+}
 
 /* Buscador */
 .buscador {
@@ -88,10 +134,9 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   width: 60%;
-
-  display: flex;           /* 🔥 clave */
-  gap: 20px;               /* espacio entre columnas */
-  align-items: flex-start; /* alinea arriba */
+  display: flex; 
+  gap: 20px;
+  align-items: flex-start; 
 }
 
 /* Columna imagen */
@@ -122,6 +167,7 @@ button {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+
 }
 button:hover {
   background-color: #7e1e5e;

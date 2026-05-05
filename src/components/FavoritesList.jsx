@@ -8,7 +8,7 @@ const FavoritesList = ({ favoritas, onSelect }) => {
 
   return (
     <div>
-      <h2>⭐ Tus favoritas</h2>
+      <h2>Tus favoritas</h2>
 
       <div className="one-half column">
         {favoritas.map((movie) => (

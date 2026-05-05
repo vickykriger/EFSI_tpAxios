@@ -7,6 +7,7 @@ import FavoritesList from "./FavoritesList";
 function App() {
     const [results, setResults] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [darkMode, setDarkMode] = useState(false);
 
     let peliFav = JSON.parse(localStorage.getItem('favs'));
     if (!peliFav) {
@@ -26,7 +27,10 @@ function App() {
     };
 
     return (
-        <div className="container">
+        <div className={`container ${darkMode ? "dark" : ""}`}>
+            <button onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? "☀️ Modo claro" : "🌙 Modo oscuro"}
+            </button>
             <SearchBar setResults={setResults} />
             {selectedMovie ? (
                 <>
